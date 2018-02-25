@@ -2,5 +2,8 @@
   "name": "RISA",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "GPL",
+  "dependencies": {
+    "mastodon-api": "^1.3.0"
+  }
 }
