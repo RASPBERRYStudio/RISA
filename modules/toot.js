@@ -15,5 +15,12 @@ module.exports = {
       console.log(response);
       return true;
     })
+  },
+  startStream: function () {
+    const mstdn = new Mastodon({
+      api_url: 'https://' + conf.mastodon.url + '/api/v1/',
+      access_token: conf.mastodon.access_token
+    });
+    return stream = mstdn.stream("streaming/user");
   }
 }
