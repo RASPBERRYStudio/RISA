@@ -6,7 +6,9 @@ listener.on('message', msg => {
     let content = msg.data.status.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g, '').replace(conf.mastodon.id, '');
     if (content.match(/のなか卯/g)) {
       require('./modules/nakau').main(msg);
-    }else{
+    } else if (content.match(/地図|マップ/g)) {
+      require('./modules/map').main(msg);
+    } else {
       require('./modules/talk').main(msg);
     }
   }
