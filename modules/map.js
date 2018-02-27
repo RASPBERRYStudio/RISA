@@ -23,7 +23,7 @@ module.exports.main = function (msg) {
       lat = res.results[0].geometry.location.lat;
       lng = res.results[0].geometry.location.lng;
     } catch (error) {
-      mstdn.toot(`@${acct} ${conf.app.missing}`, msg.data.status.id)
+      mstdn.toot(`@${acct} ${conf.app.missing}`, msg.data.status.id, msg.data.status.visibility)
       return;
     }
     var options = {
@@ -43,15 +43,15 @@ module.exports.main = function (msg) {
   }).then((res) => {
     try {
       fs.writeFileSync('./tmp/map.jpg', res, 'binary');
-      mstdn.mediaToot(`@${acct} 地図だよー!!\n(${address})`, msg.data.status.id, fs.createReadStream('./tmp/map.jpg'))
+      mstdn.mediaToot(`@${acct} 地図だよー!!\n(${address})`, msg.data.status.id, fs.createReadStream('./tmp/map.jpg'), msg.data.status.visibility)
     } catch (err) {
       console.error(err);
-      mstdn.toot(`@${acct} ${conf.app.error}`, msg.data.status.id)
+      mstdn.toot(`@${acct} ${conf.app.error}`, msg.data.status.id, msg.data.status.visibility)
     }
   }).catch(function (err) {
     if (err) {
       console.error(err);
-      mstdn.toot(`@${acct} ${conf.app.error}`, msg.data.status.id)
+      mstdn.toot(`@${acct} ${conf.app.error}`, msg.data.status.id, msg.data.status.visibility)
     }
   });
 }
