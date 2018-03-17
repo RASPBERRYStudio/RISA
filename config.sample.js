@@ -3,17 +3,17 @@ module.exports = {
     url: 'mstdn.y-zu.org',
     access_token: 'token',
     default_visibility: 'direct',
-    id: '@RISA'
+    id: '@RISA',
   },
   docomo: {
     url: 'https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue',
-    apikey: 'apikey'
+    apikey: 'apikey',
   },
   google: {
-    geokey: 'apikey'
+    geokey: 'apikey',
   },
   app: {
     missing: '見つからなかったよ....',
-    error: 'よくわからなくなっちゃった....'
-  }
-}
+    error: 'よくわからなくなっちゃった....',
+  },
+};
